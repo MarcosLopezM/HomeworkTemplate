@@ -1,4 +1,5 @@
 # Homework Assignments Template
+
 [![Build Status](https://github.com/MarcosLopezM/HomeworkTemplate/actions/workflows/main.yml/badge.svg)](https://github.com/MarcosLopezM/HomeworkTemplate/actions)
 [![Download PDF](https://img.shields.io/badge/PDF-Download-blue?logo=latex&style=flat-square)](https://marcoslopezm.github.io/HomeworkTemplate/main.pdf)
 
