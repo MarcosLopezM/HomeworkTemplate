@@ -24,5 +24,5 @@ jobs:
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
         with:
-          name: PDF
+          name: ${{ github.event.repository.name }}
           path: main.pdf
