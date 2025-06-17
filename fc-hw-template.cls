@@ -62,7 +62,7 @@
 %% Fonts
 \RequirePackage{fontspec}
 \newfontfamily\linuxlibertine[%
-	% Path = /usr/local/texlive/texmf-local/tex/latex/fc-hw-template/fonts/linux-libertine/,
+	% Path = ./fonts/linux-libertine/,
 	Path = ./fonts/linux-libertine/,
 	Extension = .otf,
 	UprightFont = *_R,
@@ -75,7 +75,7 @@
 ]{LinLibertine}
 
 \newfontfamily\linuxbiolinum[%
-	% Path = /usr/local/texlive/texmf-local/tex/latex/fc-hw-template/fonts/linux-biolinum/,
+	% Path = ./fonts/linux-biolinum/,
 	Path = ./fonts/linux-biolinum/,
 	Extension = .otf,
 	UprightFont = *_R,
