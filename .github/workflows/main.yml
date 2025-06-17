@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Build PDF with LuaLaTeX
+      - name: Build PDF with LuaLaTeX 🔧
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
@@ -25,4 +25,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ github.event.repository.name }}
-          path: main.pdf
+          path: out/main.pdf
+
+      - name: Create output folder
+        run: mkdir -p out && mv main.pdf out/
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: out
+          clean: true
+          single-commit: true
