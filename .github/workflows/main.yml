@@ -1,0 +1,40 @@
+name: Deploy PDF
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build PDF with LuaLaTeX
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex         # Change if needed
+          latex_engine: lualatex
+          output_directory: build
+
+      - name: Upload PDF as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: compiled-pdf
+          path: build/*.pdf
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          CLEAN: true
+          SINGLE_COMMIT: true
+          FOLDER: build
+          GIT_CONFIG_NAME: github-actions
+          GIT_CONFIG_EMAIL: github-actions@github.com
