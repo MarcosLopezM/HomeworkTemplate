@@ -1,0 +1,76 @@
+\documentclass[./../main.tex]{subfiles}
+\graphicspath{{img/}}
+
+\begin{document}
+\begin{problema}[15]
+	Muestre lo siguiente:
+
+	\begin{enumerate}
+		\item Si \(a = x + iy\), entonces \(a\cdot a^{*} = \norm{a}^{2}\).
+
+		      \startsolution
+
+		      Sabemos que el conjugado \(a^{*}\) es
+
+		      \begin{equation*}
+			      a^{*} = x - iy.
+		      \end{equation*}
+
+		      Entonces. calculando el producto
+
+		      \begin{align*}
+			      a \cdot a^{*} & = (x + iy)(x - iy),                               \\
+			                    & = x \cdot x - ix \cdot y + iy \cdot x - (iy)(iy), \\
+			                    & = x^{2} - (-y^{2}),                               \\
+			      a \cdot a^{*} & = x^{2} + y^{2}.
+		      \end{align*}
+
+		      Recordando que \(\norm{a} = \sqrt{x^{2} + y^{2}} \implies \norm{a}^{2} = x^{2} + y^{2}\). Entonces,
+
+		      \begin{empheq}[box=\resultbox]{equation*}
+			      a \cdot a^{*} = \norm{a}^{2}.
+		      \end{empheq}
+
+		\item Si \(a = r_{1}\e^{i\theta_{1}}\) y \(b = r_{2}\e^{i\theta_{2}}\), con \(r_{i},\theta_{i}\in\mathbb{R}\).
+
+		      \startsolution
+
+		      Calculando el producto
+
+		      \begin{align*}
+			      ab             & = \bigl(r_{1}\e^{i\theta_{1}}\bigr)\bigl(r_{2}\e^{i\theta_{2}}\bigr),                           \\
+			                     & = r_{1}r_{2}\e^{i\theta_{1}}\e^{i\theta_{2}},\qquad \mathcolor{blue}{\e^{x + y} = \e^{x}\e^{y}} \\
+			                     & = r_{1}r_{2}\e^{i\theta_{1} + i\theta_{2}},                                                     \\
+			      \Aboxedmain{ab & = r_{1}r_{2}\e^{i(\theta_{1} + \theta_{2})}.}
+		      \end{align*}
+
+		\item Si \(a = r\e^{i\theta}\), con \(r, \theta \in \mathbb{R}\), entonces \(\abs{a} = r\).
+
+		      \startsolution
+
+		      Sea
+
+		      \begin{align*}
+			      \abs{a}             & = \abs{r\e^{i\theta}} = \abs{r}\abs{\e^{i\theta}}, \\
+			                          & = \abs{r}\abs{\cos(\theta) + i\sin(\theta)},       \\
+			                          & = r\sqrt{\cos^{2}(\theta) + \sin^{2}(\theta)},     \\
+			                          & = r\sqrt{1},                                       \\
+			      \Aboxedmain{\abs{a} & = r.}
+		      \end{align*}
+
+		\item Si \(a = r\e^{ix + y}\), con \(r, x, y \in \mathbb{R}\), entonces \(\abs{a} = r\e^{y}\).
+
+		      \startsolution
+
+		      Sea
+
+		      \begin{align*}
+			      \abs{a}             & = \abs{r\e^{ix + y}} = \abs{r}\abs{\e^{ix + y}}, \\
+			                          & = r\abs{\e^{ix}\e^{y}},                          \\
+			                          & = r\abs{\e^{y}}\abs{\e^{ix}},                    \\
+			                          & = r\e^{y}\sqrt{\cos^{2}(x) + \sin^{2}(x)},       \\
+			      \Aboxedmain{\abs{a} & = r\e^{y}.}
+		      \end{align*}
+	\end{enumerate}
+\end{problema}
+\end{document}

@@ -1,0 +1,61 @@
+\documentclass[./../main.tex]{subfiles}
+\graphicspath{{img/}}
+\begin{document}
+\begin{problema}
+	Muestre que la matriz
+
+	\begin{equation*}
+		U = \begin{pNiceMatrix}
+			\e^{i\phi}\cos\tfrac{\theta}{2} & -\sin\tfrac{\theta}{2}           \\
+			\sin\tfrac{\theta}{2}           & \e^{-i\phi}\cos\tfrac{\theta}{2}
+		\end{pNiceMatrix}
+	\end{equation*}
+
+	es unitaria, para \(\theta \in (0, 2\pi)\) y \(\phi \in [0, 2\pi)\).
+
+	\startsolution
+
+	Por el problema anterior sabemos que una matriz es unitaria sin
+
+	\begin{equation*}
+		UU^{\dagger} = I,
+	\end{equation*}
+
+	con \(U^{\dagger}\) la transpuesta conjugada de \(U\).
+
+	Entonces, calculamos \(U^{\dagger}\):
+
+	\begin{equation*}
+		U^{\dagger} = \begin{pNiceMatrix}
+			\e^{-i\phi}\cos\tfrac{\theta}{2} & \sin\tfrac{\theta}{2}           \\
+			-\sin\tfrac{\theta}{2}           & \e^{i\phi}\cos\tfrac{\theta}{2}
+		\end{pNiceMatrix}.
+	\end{equation*}
+
+	Ahora, calculamos \(UU^{\dagger}\):
+
+	\begin{align*}
+		UU^{\dagger}   & = \begin{pNiceMatrix}
+			                   \e^{i\phi}\cos\tfrac{\theta}{2} & -\sin\tfrac{\theta}{2}           \\
+			                   \sin\tfrac{\theta}{2}           & \e^{-i\phi}\cos\tfrac{\theta}{2}
+		                   \end{pNiceMatrix} \begin{pNiceMatrix}
+			                                     \e^{-i\phi}\cos\tfrac{\theta}{2} & \sin\tfrac{\theta}{2}           \\
+			                                     -\sin\tfrac{\theta}{2}           & \e^{i\phi}\cos\tfrac{\theta}{2}
+		                                     \end{pNiceMatrix},                                                                                                                                                                         \\
+		               & = \renewcommand{\arraystretch}{1.3}\begin{pNiceMatrix}
+			                                                    \e^{i\phi}\e^{-i\phi}\cos^{2}\tfrac{\theta}{2} + \sin^{2}\tfrac{\theta}{2}                                    & \e^{i\phi}\sin\tfrac{\theta}{2}\cos\tfrac{\theta}{2} - \e^{i\phi}\sin\tfrac{\theta}{2}\cos\tfrac{\theta}{2} \\
+			                                                    \e^{-i\phi}\sin\tfrac{\theta}{2}\cos\tfrac{\theta}{2} - \e^{-i\phi}\sin\tfrac{\theta}{2}\cos\tfrac{\theta}{2} & \sin^{2}\tfrac{\theta}{2} + \e^{-i\phi}\e^{i\phi}\cos^{2}\tfrac{\theta}{2}
+		                                                    \end{pNiceMatrix}, \\
+		               & = \begin{pNiceMatrix}
+			                   \sin^{2}\tfrac{\theta}{2} + \cos^{2}\tfrac{\theta}{2} & 0                                                     \\
+			                   0                                                     & \sin^{2}\tfrac{\theta}{2} + \cos^{2}\tfrac{\theta}{2}
+		                   \end{pNiceMatrix},                                                                                                                                                \\
+		               & = \begin{pNiceMatrix}
+			                   1 & 0 \\
+			                   0 & 1
+		                   \end{pNiceMatrix},                                                                                                                                                                                                                                           \\
+		UU^{\dagger}   & = I,                                                                                                                                                                                                                                                           \\
+		\therefore\, U & \text{ es una matriz unitaria}.
+	\end{align*}
+\end{problema}
+\end{document}

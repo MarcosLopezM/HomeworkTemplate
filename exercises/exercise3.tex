@@ -1,0 +1,187 @@
+\documentclass[./../main.tex]{subfiles}
+\graphicspath{{img/}}
+\begin{document}
+
+\begin{problema}[][Notación BraKet]
+	Considere los operadores
+
+	\begin{align}
+		\hc{S} & = \ketbra{0}{0} - i\ketbra{1}{1},\label{eq:s_op-conjugate} \\
+		\op{T} & = -i\ketbra{0}{1} + i\ketbra{1}{0}\label{eq:t_op}.
+	\end{align}
+
+	y los kets
+
+	\begin{align}
+		\ket{\psi} & = \dfrac{1 + i}{2}\ket{0} + \dfrac{i}{2}\ket{1},\label{eq:psi_ket}                      \\
+		\ket{\phi} & = \dfrac{1}{\sqrt{2}}\ket{0} - \dfrac{\e^{i\theta}}{\sqrt{2}}\ket{1}.\label{eq:phi_ket}
+	\end{align}
+
+	\begin{enumerate}
+		\item Muestre que los operadores son unitarios y que los kets están normalizados.
+
+		      \startsolution
+
+		      Un operador es unitario si
+
+		      \begin{equation*}
+			      \op{U}\hc{U} = \hc{U}\op{U} = \op{I}.
+		      \end{equation*}
+
+		      Por un lado, para \zcref[S]{eq:s_op-conjugate} tenemos que
+
+		      \begin{equation*}
+			      \op{S} = \ketbra{0}{0} + i\ketbra{1}{1}.
+		      \end{equation*}
+
+		      Entonces,
+
+		      \begin{align*}
+			      \op{S}\hc{S}        & = (\ketbra{0}{0} + i\ketbra{1}{1})(\ketbra{0}{0} - i\ketbra{1}{1}),                                                    \\
+			                          & = \ketbra{0}{0}\ketbra{0}{0} - i\ketbra{0}{0}\ketbra{1}{1} + i\ketbra{1}{1}\ketbra{0}{0} + \ketbra{1}{1}\ketbra{1}{1}, \\
+			                          & = \braket{0}{0}\ketbra{0}{0} - i\braket{0}{1}\ketbra{0}{1} + i\braket{1}{0}\ketbra{1}{0} + \braket{1}{1}\ketbra{1}{1}, \\
+			                          & = \ketbra{0}{0} + \ketbra{1}{1},                                                                                       \\
+			      \op{S}\hc{S}        & = \op{I},                                                                                                              \\
+			      \therefore\, \op{S} & \text{ es unitario}.
+		      \end{align*}
+
+		      Por el otro, \(\hc{T}\) para \zcref[S]{eq:t_op} es
+
+		      \begin{equation*}
+			      \hc{T} = i\ketbra{1}{0} - i\ketbra{0}{1}.
+		      \end{equation*}
+
+		      Entonces,
+
+		      \begin{align*}
+			      \op{T}\hc{T}        & = (-i\ketbra{0}{1} + i\ketbra{1}{0})(i\ketbra{1}{0} - i\ketbra{0}{1}),                                               \\
+			                          & = \ketbra{0}{1}\ketbra{1}{0} - \ketbra{0}{1}\ketbra{0}{1} - \ketbra{1}{0}\ketbra{1}{0} + \ketbra{1}{0}\ketbra{0}{1}, \\
+			                          & = \ketbra{0}{0} + \ketbra{1}{1},                                                                                     \\
+			      \op{T}\hc{T}        & = \op{I},                                                                                                            \\
+			      \therefore\, \op{T} & \text{ es unitario}.
+		      \end{align*}
+
+		      Para determinar si \zcref[S]{eq:psi_ket,eq:phi_ket} están normalizados, primero calculamos \(\bra{\psi}\) y \(\bra{\phi}\). Así,
+
+		      \begin{align*}
+			      \bra{\psi} & = \dfrac{1 - i}{2}\bra{0} - \dfrac{i}{\sqrt{2}}\bra{1},                \\
+			      \bra{\phi} & = \dfrac{1}{\sqrt{2}}\bra{0} - \dfrac{\e^{-i\theta}}{\sqrt{2}}\bra{1}.
+		      \end{align*}
+
+		      Entonces, para \zcref[S]{eq:psi_ket},
+
+		      \begin{align*}
+			      \braket{\psi}{\psi}     & = \biggl(\dfrac{1 - i}{2}\bra{0} - \dfrac{i}{\sqrt{2}}\bra{1}\biggr)\biggl(\dfrac{1 + i}{2}\ket{0} + \dfrac{i}{\sqrt{2}}\ket{1}\biggr),                                                                     \\
+			                              & = \dfrac{(1 - i)(1 + i)}{4}\braket{0}{0} + \biggl(\dfrac{1 - i}{2}\biggr)\dfrac{i}{\sqrt{2}}\braket{0}{1} - \dfrac{i}{\sqrt{2}}\biggl(\dfrac{1 + i}{2}\biggr)\braket{1}{0} - \dfrac{i^{2}}{2}\braket{1}{1}, \\
+			                              & = \dfrac{2}{4} + \dfrac{1}{2},                                                                                                                                                                              \\
+			      \braket{\psi}{\psi}     & = 1,                                                                                                                                                                                                        \\
+			      \therefore\, \ket{\psi} & \text{ está normalizado}.
+		      \end{align*}
+
+		      Para \zcref[S]{eq:phi_ket},
+
+		      \begin{align*}
+			      \braket{\phi}{\phi}     & = \biggl(\dfrac{1}{\sqrt{2}}\bra{0} - \dfrac{\e^{-i\theta}}{\sqrt{2}}\bra{1}\biggr)\biggl(\dfrac{1}{\sqrt{2}}\ket{0} - \dfrac{\e^{i\theta}}{\sqrt{2}}\ket{1}\biggr),          \\
+			                              & = \dfrac{1}{2}\braket{0}{0} - \dfrac{\e^{i\theta}}{\sqrt{2}}\braket{0}{1} - \dfrac{\e^{-i\theta}}{\sqrt{2}}\braket{1}{0} + \dfrac{\e^{-i\theta}\e^{i\theta}}{2}\braket{1}{1}, \\
+			                              & = \dfrac{1}{2} + \dfrac{\e^{-i\theta + i\theta}}{2},                                                                                                                          \\
+			      \braket{\phi}{\phi}     & = 1,                                                                                                                                                                          \\
+			      \therefore\, \ket{\phi} & \text{ está normalizado}.
+		      \end{align*}
+
+		\item Calcule \(\braket{\phi}{\psi}\) y \(\braket{\psi}{\phi}\).
+
+		      \startsolution
+
+		      Calculamos \(\braket{\phi}{\psi}\)
+
+		      \begin{align*}
+			      \braket{\phi}{\psi}             & = \biggl(\dfrac{1}{\sqrt{2}}\bra{0} - \dfrac{\e^{-i\theta}}{\sqrt{2}}\bra{1}\biggr)\biggl(\dfrac{1 + i}{2}\ket{0} + \dfrac{i}{2}\ket{1}\biggr),                                         \\
+			                                      & = \dfrac{1}{\sqrt{2}}\dfrac{1 + i}{2}\braket{0}{0} + \dfrac{i}{2}\ketbra{0}{1} - \dfrac{\e^{-i\theta}}{\sqrt{2}}\dfrac{1 + i}{2}\braket{1}{0} - \dfrac{i\e^{-i\theta}}{2}\braket{1}{1}, \\
+			      \Aboxedmain{\braket{\phi}{\psi} & = \dfrac{1 + i}{2\sqrt{2}} - \dfrac{i\e^{-i\theta}}{2}.}
+		      \end{align*}
+
+		      Y \(\braket{\psi}{\phi}\)
+
+		      \begin{align*}
+			      \braket{\psi}{\phi}             & = \biggl(\dfrac{1 - i}{2}\bra{0} - \dfrac{i}{\sqrt{2}}\bra{1}\biggr)\biggl(\dfrac{1}{\sqrt{2}}\ket{0} - \dfrac{\e^{i\theta}}{\sqrt{2}}\ket{1}\biggr),              \\
+			                                      & = \dfrac{1 - i}{2\sqrt{2}}\braket{0}{0} - \dfrac{(1 - i)\e^{i\theta}}{2\sqrt{2}}\braket{0}{1} - \dfrac{i}{2}\braket{1}{0} + \dfrac{i\e^{i\theta}}{2}\braket{1}{1}, \\
+			      \Aboxedmain{\braket{\psi}{\phi} & = \dfrac{1 - i}{2\sqrt{2}} + \dfrac{i\e^{i\theta}}{2}.}
+		      \end{align*}
+
+		\item Calcule \(\op{T}\ket{\psi}\) y \(\hc{S}\ket{\phi}\).
+
+		      \startsolution
+
+		      Calculamos \(\op{T}\ket{\psi}\)
+
+		      \begin{align*}
+			      \op{T}\ket{\psi}             & = (-i\ketbra{0}{1} + i\ketbra{1}{0})\biggl(\dfrac{1 + i}{2}\ket{0} + \dfrac{i}{2}\ket{1}\biggr),                                                                                  \\
+			                                   & = -\dfrac{i(1 + i)}{2}\braket{1}{0}\ket{0} - \dfrac{i^{2}}{\sqrt{2}}\braket{1}{1}\ket{0} + \dfrac{i(1 + i)}{2}\braket{0}{0}\ket{1} + \dfrac{i^{2}}{\sqrt{2}}\braket{0}{1}\ket{1}, \\
+			      \Aboxedmain{\op{T}\ket{\psi} & = \dfrac{1}{\sqrt{2}}\ket{0} + \dfrac{i - 1}{2}\ket{1}.}
+		      \end{align*}
+
+		      Y \(\hc{S}\ket{\phi}\)
+
+		      \begin{align*}
+			      \hc{S}\ket{\phi}             & = (\ketbra{0}{0} - i\ketbra{1}{1})\biggl(\dfrac{1}{\sqrt{2}}\ket{0} - \dfrac{\e^{i\theta}}{\sqrt{2}}\ket{1}\biggr),                                                                             \\
+			                                   & = \dfrac{1}{\sqrt{2}}\braket{0}{0}\ket{0} - \dfrac{\e^{i\theta}}{\sqrt{2}}\braket{0}{1}\ket{0} - \dfrac{i}{\sqrt{2}}\braket{1}{0}\ket{1} + \dfrac{i\e^{i\theta}}{\sqrt{2}}\braket{1}{1}\ket{1}, \\
+			      \Aboxedmain{\hc{S}\ket{\phi} & = \dfrac{1}{\sqrt{2}}\ket{0} + \dfrac{\e^{i\theta}}{\sqrt{2}}\ket{1}.}
+		      \end{align*}
+
+		\item Mida el estado \(\op{T}\ket{\psi}\) en la base computacional. ¿Cuál es la probabilidad de medir \(\ket{0}\) y \(\ket{1}\)?
+
+		      \startsolution
+
+		      Tenemos que la probabilidad de medir \(\ket{0}\) es
+
+		      \begin{align*}
+			      P(0)             & = \abs{\dmatrixel{0}{\op{T}}{\psi}}^{2},                                            \\
+			                       & = \abs`\Bigg{\dfrac{1}{\sqrt{2}}\braket{0}{0} + \dfrac{i - 1}{2}\braket{0}{1}}^{2}, \\
+			                       & = \abs`\Big{\dfrac{1}{\sqrt{2}}}^{2},                                               \\
+			      \Aboxedmain{P(0) & = \dfrac{1}{2}.}
+		      \end{align*}
+
+		      Y de medir \(\ket{1}\),
+
+		      \begin{align*}
+			      P(1)             & = \abs{\dmatrixel{1}{\op{T}}{\psi}}^{2},                                              \\
+			                       & = \abs`\Bigg{\ket{1}\biggl(\dfrac{1}{\sqrt{2}}\ket{0} + \dfrac{i - 1}{2}\biggr)}^{2}, \\
+			                       & = \abs`\Bigg{\dfrac{1}{\sqrt{2}}\braket{1}{0} + \dfrac{i - 1}{2}\braket{1}{1}}^{2},   \\
+			                       & = \abs`\Big{\dfrac{i - 1}{2}}^{2},                                                    \\
+			                       & = \biggl(\dfrac{i- 1}{2}\biggr)\biggl(\dfrac{-i - 1}{2}\biggr),                       \\
+			                       & = \dfrac{1}{4} + \dfrac{1}{4},                                                        \\
+			      \Aboxedmain{P(1) & = \dfrac{1}{2}.}
+		      \end{align*}
+
+		\item Mida el estado \(\hc{S}\ket{\phi}\) en la base diagonal. ¿Cuál es la probabilidad de medir \(\ket{+}\) y \(\ket{-}\)?
+
+		      \startsolution
+
+		      Para medir \(\ket{+}\) tenemos que
+
+		      \begin{align*}
+			      P(+)             & = \abs{\dmatrixel{+}{\hc{S}}{\phi}}^{2},                                                                       \\
+			                       & = \abs`\Bigg{\bra{+}\biggl(\dfrac{1}{\sqrt{2}}\ket{0} + \dfrac{i\e^{i\theta}}{\sqrt{2}}\ket{1}\biggr)}^{2},    \\
+			                       & = \abs`\Bigg{\dfrac{1}{\sqrt{2}}\braket{+}{0} + \dfrac{i\e^{i\theta}}{\sqrt{2}}\braket{+}{1}}^{2},             \\
+			                       & = \abs`\Bigg{\dfrac{1}{2} + \dfrac{i\e^{i\theta}}{2}}^{2},                                                     \\
+			                       & = \biggl(\dfrac{1}{2} + \dfrac{i\e^{i\theta}}{2}\biggr)\biggl(\dfrac{1}{2} - \dfrac{i\e^{-i\theta}}{2}\biggr), \\
+			                       & = \dfrac{1}{4} + \dfrac{\e^{i\theta - i\theta}}{4},                                                            \\
+			      \Aboxedmain{P(+) & = \dfrac{1}{2}.}
+		      \end{align*}
+
+		      Mientras que para \(\ket{-}\) es
+
+		      \begin{align*}
+			      P(-)             & = \abs{\dmatrixel{-}{\hc{S}}{\phi}}^{2},                                                                       \\
+			                       & = \abs`\Bigg{\bra{-}\biggl(\dfrac{1}{\sqrt{2}}\ket{0} + \dfrac{i\e^{i\theta}}{\sqrt{2}}\ket{1}\biggr)}^{2},    \\
+			                       & = \abs`\Bigg{\dfrac{1}{\sqrt{2}}\braket{-}{0} + \dfrac{i\e^{i\theta}}{\sqrt{2}}\braket{-}{1}}^{2},             \\
+			                       & = \abs`\Bigg{\dfrac{1}{2} - \dfrac{i\e^{i\theta}}{2}}^{2},                                                     \\
+			                       & = \biggl(\dfrac{1}{2} - \dfrac{i\e^{i\theta}}{2}\biggr)\biggl(\dfrac{1}{2} + \dfrac{i\e^{-i\theta}}{2}\biggr), \\
+			                       & = \dfrac{1}{4} - \dfrac{i\e^{i\theta}}{4} + \dfrac{i\e^{-i\theta}}{4} - \dfrac{\e^{i\theta - i\theta}}{4},     \\
+			                       & = \dfrac{1}{4} + \dfrac{1}{2}\biggl(\dfrac{\e^{i\theta} - \e^{-i\theta}}{2}\biggr) + \dfrac{1}{4},             \\
+			                       & = \dfrac{1}{2} + \dfrac{\sin(\theta)}{2},                                                                      \\
+			      \Aboxedmain{P(-) & = \dfrac{1 + \sin(\theta)}{2}.}
+		      \end{align*}
+	\end{enumerate}
+\end{problema}
+\end{document}

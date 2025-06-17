@@ -1,0 +1,74 @@
+\documentclass[./../main.tex]{subfiles}
+\graphicspath{{img/}}
+
+\begin{document}
+\begin{problema}
+	Calcula los eigenvalores y lo eigenvectores de la matrix \(X\) de Pauli.
+
+	\begin{equation*}
+		\op{X} = \begin{pNiceMatrix}
+			0 & 1 \\
+			1 & 0
+		\end{pNiceMatrix}.
+	\end{equation*}
+
+	\startsolution
+
+	Resolvemos el problema de eigenvalores \((\op{X} - \lambda\op{I}) = 0\). Primero obtenemos los eigenvalores resolviendo \(\det(\op{X} - \lambda\op{I}) = 0\), tal que:
+
+	\begin{align*}
+		\det(\op{X} - \lambda\op{I}) & = \begin{vNiceMatrix}
+			                                 -\lambda & 1        \\
+			                                 1        & -\lambda
+		                                 \end{vNiceMatrix}, \\
+		\implies \lambda^{2} - 1     & = 0,                  \\
+		\implies \lambda^{2}         & = 1.
+	\end{align*}
+
+	Por lo tanto, los eigenvalores son \(\lambda_{1} = 1\) y \(\lambda_{2} = -1\).
+
+	Ahora, obtenemos los eigenvectores. Para \(\lambda_{1} = 1\):
+
+	\begin{align*}
+		\begin{pmatrix}
+			-1 & 1  \\
+			1  & -1
+		\end{pmatrix} \begin{pmatrix}
+			              x_{1} \\
+			              x_{2}
+		              \end{pmatrix} & = 0,                                \\
+		\implies x_{2}                & = x_{1}\; \wedge\; x_{1} = x_{1}.
+	\end{align*}
+
+	Por lo tanto, el eigenvector normalizado correspondiente a \(\lambda_{1} = 1\) es:
+
+	\begin{empheq}[box=\resultbox]{equation*}
+		\vect{x}_{1} = \dfrac{1}{\sqrt{2}}\begin{pmatrix}
+			1 \\
+			1
+		\end{pmatrix}.
+	\end{empheq}
+
+	Ahora, para \(\lambda_{2} = -1\):
+
+	\begin{align*}
+		\begin{pmatrix}
+			1 & 1 \\
+			1 & 1
+		\end{pmatrix} \begin{pmatrix}
+			              x_{1} \\
+			              x_{2}
+		              \end{pmatrix} & = 0,                                 \\
+		\implies x_{2}                & = -x_{1}\; \wedge\; x_{1} = x_{1}.
+	\end{align*}
+
+	Por lo tanto, el eigenvector normalizado correspondiente a \(\lambda_{2} = -1\) es:
+
+	\begin{empheq}[box=\resultbox]{equation*}
+		\vect{x}_{2} = \dfrac{1}{\sqrt{2}}\begin{pmatrix}
+			1 \\
+			-1
+		\end{pmatrix}.
+	\end{empheq}
+\end{problema}
+\end{document}

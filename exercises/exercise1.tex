@@ -1,0 +1,129 @@
+\documentclass[./../main.tex]{subfiles}
+\graphicspath{{img/}}
+
+\begin{document}
+\begin{problema}[5][Propiedades de los números complejos]
+	Considere los siguientes números complejos:
+
+	\begin{align}
+		a & = (2 + 3i)(4 + i),\label{eq:a-complex}       \\
+		b & = \dfrac{2 + 3i}{4 + i}.\label{eq:b-complex}
+	\end{align}
+
+	\begin{enumerate}
+		\item Exprese cada número en la forma \(x + iy\).
+
+		      \startsolution
+
+		      Para expresar cada uno de los números de la forma deseada primero desarrollamos cada una de las expresiones. Por un lado, \zcref[S]{eq:a-complex} queda como
+
+		      \begin{align}
+			      a             & = 2(4) + 2i + 3i(4) + 3i(i),\nonumber  \\
+			                    & = (8 - 3) + i(2 + 12),\nonumber        \\
+			      \Aboxedmain{a & = 5 + 14i,}\label{eq:a-complex-result}
+		      \end{align}
+
+		      con \(x = 5\) y \(y = 14\).
+
+		      \pagebreak
+		      Por el otro, \zcref[S]{eq:b-complex} se ve como
+
+		      \begin{align}
+			      b             & = \dfrac{2 + 3i}{4 + i}\dfrac{4 - i}{4 - i},\nonumber           \\
+			                    & = \dfrac{(2 + 3i)(4 - i)}{4^{2} - i^{2}},\nonumber              \\
+			                    & = \dfrac{8 - 2i + 12i + 3}{17},\nonumber                        \\
+			                    & = \dfrac{8 + 3}{17} + \dfrac{12 - 2}{17}i,\nonumber             \\
+			      \Aboxedmain{b & = \dfrac{11}{17} + \dfrac{10}{17}i,}\label{eq:b-complex-result}
+		      \end{align}
+
+		      con \(x = \dfrac{11}{17}\) y \(y = \dfrac{10}{17}\).
+
+		\item Calcule el complejo conjugado de \(a\) y \(b\).
+
+		      \startsolution
+
+		      De los resultados del inciso anterior, tenemos que el complejo conjugado de \zcref[S]{eq:a-complex-result} es
+
+		      \begin{empheq}[box=\resultbox]{equation*}
+			      a^{*} = 5 - 14i.
+		      \end{empheq}
+
+		      y de \zcref[S]{eq:b-complex-result}
+
+		      \begin{empheq}[box=\resultbox]{equation*}
+			      b^{*} = \dfrac{11}{17} - \dfrac{10}{17}i.
+		      \end{empheq}
+
+		\item Exprese cada número en la forma polar, \(r\e^{i\theta}\).
+
+		      \startsolution
+
+		      Para pasar a la forma polar primero debemos recordar que
+
+		      \begin{align*}
+			      r      & = \sqrt{x^{2} + y^{2}},             \\
+			      \theta & = \arctan\left(\dfrac{y}{x}\right).
+		      \end{align*}
+
+		      Así, para \(a\) tenemos que
+
+		      \begin{align*}
+			      r      & = \sqrt{5^{2} + 14^{2}} = \sqrt{221}, \\
+			      \theta & = \arctan\biggl(\dfrac{14}{5}\biggr).
+		      \end{align*}
+
+		      Entonces, \zcref[S]{eq:a-complex-result} en su representación polar se ve como:
+
+		      \begin{empheq}[box=\resultbox]{equation}
+			      a = \sqrt{221}\e^{i\arctan\bigl(\tfrac{14}{5}\bigr)}.
+			      \label{eq:a-complex-polar}
+		      \end{empheq}
+
+		      Para \zcref[S]{eq:b-complex-result} tenemos
+
+		      \begin{align*}
+			      r      & = \sqrt{\biggl(\tfrac{11}{17}\biggr)^{2} + \biggl(\tfrac{10}{17}\biggr)^{2}} = \sqrt{\tfrac{13}{17}}, \\
+			      \theta & = \arctan\biggl(\dfrac{10}{11}\biggr).
+		      \end{align*}
+
+		      Tal que,
+
+		      \begin{empheq}[box=\resultbox]{equation*}
+			      b = \sqrt{\dfrac{13}{17}}e^{i\arctan\bigl(\tfrac{10}{11}\bigr)}.
+			      \label{eq:b-complex-polar}
+		      \end{empheq}
+
+		\item Calcule \(a^{5}\) y \(\sqrt{b}\). Use la representación más conveniente para cada operación, pero exprese el resultado en la forma \(x + iy\).
+
+		      \startsolution
+
+		      Para calcular \(a^{5}\) usamos la representación dada por \zcref[S]{eq:a-complex-result}, tal que,
+
+		      \begin{align*}
+			      a^{5} & = \biggl(\sqrt{221}\e^{i\arctan(14 / 5)}\biggr)^{5}, \\
+			            & = (221)^{5 / 2}\e^{i5\arctan(14 / 5)},
+		      \end{align*}
+
+		      donde \(r = (221)^{5 / 2}\) y \(\theta = 5\arctan(14 / 5) - 2\pi\). Entonces,
+
+		      \begin{align*}
+			      a^{5}             & = (221)^{5 / 2}\biggl[\cos\biggl(5\arctan(14 / 5) - 2\pi\biggr) + i\sin\biggl(5\arctan(14 / 5) - 2\pi\biggr)\biggr], \\
+			      \Aboxedmain{a^{5} & = 718525 - 104426i.}
+		      \end{align*}
+
+		      Análogamente,
+
+		      \begin{align*}
+			      \sqrt{b} & = \biggl[\biggl(\dfrac{13}{17}\biggr)^{1 / 2}\e^{i\arctan(10 / 11)}\biggr]^{1 / 2}, \\
+			               & = \bigg(\dfrac{13}{17}\bigg)^{1 / 4}\e^{i\arctan(10 / 11) / 2},                     \\
+		      \end{align*}
+
+		      donde \(r = (13 / 17)^{1 / 4}\) y \(\theta = \arctan(10 / 11) / 2\). Por lo que,
+
+		      \begin{align*}
+			      \sqrt{b}             & = \bigg(\dfrac{13}{17}\bigg)^{1 / 4}\biggl[\cos\biggl(\dfrac{\arctan(10 / 11)}{2}\biggr) + i\sin\biggl(\dfrac{\arctan(10 / 11)}{2}\biggr)\biggr], \\
+			      \Aboxedmain{\sqrt{b} & = 0.8722 + 0.3372i.}
+		      \end{align*}
+	\end{enumerate}
+\end{problema}
+\end{document}

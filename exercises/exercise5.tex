@@ -1,0 +1,46 @@
+\documentclass[./../main.tex]{subfiles}
+\graphicspath{{img/}}
+
+\begin{document}
+\begin{problema}
+	Si \(\op{H}\) es el operador Hadamard. Muestre que
+
+	\begin{equation*}
+		\op{H}{}{\otimes n}\ket{0}^{\otimes n} = \dfrac{1}{\sqrt{2^{2n}}}\sum_{i = 0}^{2^{n} - 1}\ket{i}.
+	\end{equation*}
+
+	\startsolution
+
+	Reescribiendo \(\op{H}{}{\otimes n}\),
+
+	\begin{equation*}
+		\op{H}{}{\otimes n} = \bigotimes_{n} \op{H}\ket{0} = \bigotimes_{n} \ket{+} = \ket{+}^{\otimes n}.
+	\end{equation*}
+
+	Recordando que \(\ket{+} = \tfrac{1}{\sqrt{2}}(\ket{0} + \ket{1})\), tenemos que
+	\begin{equation}
+		\ket{+}^{\otimes n} = \dfrac{1}{\sqrt{2^{n}}}\sum_{i = 0}^{2^{n} - 1}\ket{i}.
+		\label{eq:tensor_prod-plus_state}
+	\end{equation}
+
+	Si desarrollamos la expresión anterior para \(n = 2\),
+
+	\begin{align*}
+		\ket{+}^{\otimes 2} & = \dfrac{1}{\sqrt{2}}(\ket{0} + \ket{1}) \otimes \dfrac{1}{\sqrt{2}}(\ket{0} + \ket{1}), \\
+		                    & = \dfrac{1}{2^{2 / 2}}(\ket{00} + \ket{01} + \ket{10} + \ket{11}).
+	\end{align*}
+
+	Donde cada estado corresponde a la representación binaria de los números \(0\) a \(3\). Entonces, \zcref[S]{eq:tensor_prod-plus_state} se puede generalizar a \(n\) estados como:
+
+	\begin{equation*}
+		\ket{+}^{\otimes n} = \dfrac{1}{2^{n / 2}}\sum_{i = 0}^{2^{n} - 1}\ket{i}.
+	\end{equation*}
+
+	Por lo tanto,
+
+	\begin{empheq}[box=\resultbox]{equation*}
+		\op{H}{}{\otimes n}\ket{0}^{\otimes n} = \dfrac{1}{\sqrt{2^{n}}}\sum_{i = 0}^{2^{n} - 1}\ket{i}.
+	\end{empheq}
+
+\end{problema}
+\end{document}
