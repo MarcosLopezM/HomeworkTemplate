@@ -63,7 +63,6 @@
 \RequirePackage{fontspec}
 \newfontfamily\linuxlibertine[%
 	% Path = ./fonts/linux-libertine/,
-	Path = ./fonts/linux-libertine/,
 	Extension = .otf,
 	UprightFont = *_R,
 	BoldFont = *_RB,
@@ -76,7 +75,6 @@
 
 \newfontfamily\linuxbiolinum[%
 	% Path = ./fonts/linux-biolinum/,
-	Path = ./fonts/linux-biolinum/,
 	Extension = .otf,
 	UprightFont = *_R,
 	BoldFont = *_RB,
