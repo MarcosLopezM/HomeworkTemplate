@@ -147,6 +147,7 @@
 
 %% Sections Settings
 \RequirePackage[explicit]{titlesec} % explained in https://tex.stackexchange.com/a/292307/234654
+
 \RequirePackage{suffix}
 
 \newcommand{\sectionheadname}{Problema} % Name for the Section (default as 'Problema')
@@ -235,6 +236,11 @@
 				\bm{\hat{#1}}%
 			\fi
 		}}% 
+
+% Products
+\newcommand*{\dotprod}[2]{#1\cdot#2}
+\newcommand*{\cprod}[2]{#1\mathbin{\mul}#2}
+
 
 %% Empheq Settings
 % Defining a variant of Aboxed command from mathtools
@@ -411,7 +417,7 @@
 		{
 			\large
 			\linuxbiolinum
-			\textcolor{BrickRed}{Grupo~\@group~-- \@semester}
+			\textcolor{BrickRed}{Grupo~\@group\;-- Sem.~\@semester}
 		}\\[.5em]
 		{
 		\ifx\@assignno\@empty
