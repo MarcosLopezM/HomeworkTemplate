@@ -62,7 +62,7 @@
 %% Fonts
 \RequirePackage{fontspec}
 \newfontfamily\linuxlibertine[%
-	% Path = ./fonts/linux-libertine/,
+	Path = ./fonts/linux-libertine/,
 	Extension = .otf,
 	UprightFont = *_R,
 	BoldFont = *_RB,
@@ -74,7 +74,7 @@
 ]{LinLibertine}
 
 \newfontfamily\linuxbiolinum[%
-	% Path = ./fonts/linux-biolinum/,
+	Path = ./fonts/linux-biolinum/,
 	Extension = .otf,
 	UprightFont = *_R,
 	BoldFont = *_RB,
@@ -320,6 +320,7 @@
 
 \hypersetup{
 	colorlinks = true,%
+	pdfnewwindow = true,%
 	linkcolor={[rgb]{0,0.2,0.6}},%
 	citecolor={[rgb]{0,0.6,0.2}},%
 	filecolor={[rgb]{0.8,0,0.8}},%
@@ -398,37 +399,54 @@
 	\thispagestyle{firstpage}
 	\linuxlibertine
 	\enlargethispage{-\firstfooteradditionalheight} % make room for the footer
-	\begin{minipage}{10.5cm}
-		\centering
-		{
-			% \fontsize{36}{48}\selectfont
-			\fontsize{30}{62}\selectfont
-			\textcolor{Plum}{\scshape \@subject}
-		}\\[.5em]
-		{
-		\@author
-		\qquad
-		\textit{Prof.:~\@instructor}
-		}
-	\end{minipage}
-	\begin{minipage}{5cm}
-		\vspace{0.7em}
-		\centering
-		{
-			\large
-			\linuxbiolinum
-			\textcolor{BrickRed}{Grupo~\@group\;-- Sem.~\@semester}
-		}\\[.5em]
-		{
-		\ifx\@assignno\@empty
-			\vspace{2mm}
-			\LARGE\@title
-		\else
-			\vspace{2mm}
-			\LARGE\@title~{\@assignno}
-		\fi
-		}
-	\end{minipage}
+	\ifx\@semester\@empty
+
+		\begin{minipage}{\textwidth}
+			\centering
+			{
+				% \fontsize{36}{48}\selectfont
+				\fontsize{30}{62}\selectfont
+				\textcolor{Plum}{\scshape \@subject}
+			}\\[.5em]
+			{
+			\@author
+			\qquad
+			\textit{Prof.:~\@instructor}
+			}
+		\end{minipage}
+	\else
+		\begin{minipage}{10.5cm}
+			\centering
+			{
+				% \fontsize{36}{48}\selectfont
+				\fontsize{30}{62}\selectfont
+				\textcolor{Plum}{\scshape \@subject}
+			}\\[.5em]
+			{
+			\@author
+			\qquad
+			\textit{Prof.:~\@instructor}
+			}
+		\end{minipage}
+		\begin{minipage}{5cm}
+			\vspace{0.7em}
+			\centering
+			{
+				\large
+				\linuxbiolinum
+				\textcolor{BrickRed}{Grupo~\@group\;-- Sem.~\@semester}
+			}\\[.5em]
+			{
+			\ifx\@assignno\@empty
+				\vspace{2mm}
+				\LARGE\@title
+			\else
+				\vspace{2mm}
+				\LARGE\@title~{\@assignno}
+			\fi
+			}
+		\end{minipage}
+	\fi
 	\\[.3em]
 	\color{customBlue} \hrule width \hsize height 2pt \kern 1mm \hrule width \hsize
 	\color{black} % Reset color after rules
@@ -449,8 +467,12 @@
 	\hypersetup{
 		pdfauthor={\@author},
 		pdftitle={%
-				\@title~\@assignno~
-				- \@subject%
+				\ifx\@title\@empty
+					\@subject%
+				\else
+					\@title~\@assignno~
+					- \@subject%
+				\fi
 			},
 		pdfsubject={\@subject},
 		pdfkeywords={%
