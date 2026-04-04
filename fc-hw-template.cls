@@ -4,7 +4,7 @@
 %%                                                    %%
 %% ================================================== %%
 %%                                                    %%
-%% Version:     2.6 (2025/06/17)                      %%
+%% Version:     2.7 (2026/04/04)                      %%
 %% Author:      Marcos López Merino                   %%
 %% License:     MIT LICENSE                           %%
 %% GitHub Repo: http://tinyurl.com/hw-template        %%
@@ -371,7 +371,11 @@
 % Definir texto común que aparece en LO y RE
 \newcommand{\myHeaderText}{%
 	\linuxlibertine
+    \ifx\@title\@empty
+      \textsc{\@subject}%
+    \else
 	\textsc{\@subject~---~\@title~\@assignno}%
+    \fi
 }
 
 % Asignar cabeceras
@@ -399,6 +403,7 @@
 	\thispagestyle{firstpage}
 	\linuxlibertine
 	\enlargethispage{-\firstfooteradditionalheight} % make room for the footer
+    \vspace*{-2cm}
 	\ifx\@semester\@empty
 
 		\begin{minipage}{\textwidth}
@@ -453,7 +458,7 @@
 	% Due date
 	\ifx\@duedate\@empty
 		\begin{center}
-			\textbf{\normalsize Entrega:~\DTMtoday}
+			\textbf{\normalsize\DTMtoday}
 		\end{center}
 	\else
 		\begin{center}
